@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 
 namespace Consoleless
 {
-    [BepInPlugin("BrokenStone.Consoleless", "Consoleless", "1.0.0")]
+    [BepInPlugin("BrokenStone.Consoleless", "Consoleless", "1.0.1")]
     public class Plugin : BaseUnityPlugin
     {
         public void Awake()

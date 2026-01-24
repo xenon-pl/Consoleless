@@ -3,6 +3,8 @@ A BepInEx mod that prevents [Console](https://github.com/iiDk-the-actual/Console
 
 This currently blocks a majority of endpoints on iidk.online, but not the friend system.
 
+and yes this code is messy please fix it thank you
+
 # Info
 II's menu sends telemetry data every time you join a room, this includes your:
 - Room name

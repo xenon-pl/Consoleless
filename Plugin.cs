@@ -24,10 +24,7 @@ namespace Consoleless
     {
         public static List<string> BlockedUrls = new List<string>()
         {
-            "https://iidk.online/serverdata",
-            "https://iidk.online/telemetry",
-            "https://iidk.online/syncdata",
-            "https://iidk.online/reportban",
+            "https://iidk.online/",
             "https://raw.githubusercontent.com/iiDk-the-actual/Console",
             "https://data.hamburbur.org",
             "https://files.hamburbur.org"
@@ -40,7 +37,7 @@ namespace Consoleless
         [HarmonyPrefix]
         static bool Prefix(UnityWebRequest __instance)
         {
-            if (Constants.BlockedUrls.Any(blocked => __instance.url.Contains(blocked)))
+            if (Constants.BlockedUrls.Any(blocked => __instance.url.StartsWith(blocked)))
             {
                 Debug.Log($"[Consoleless] Blocked {__instance.url}");
                 __instance.url = null;
@@ -55,7 +52,7 @@ namespace Consoleless
         [HarmonyPrefix]
         static bool Prefix(string requestUri, ref Task<byte[]> __result)
         {
-            if (Constants.BlockedUrls.Any(blocked => requestUri.Contains(blocked)))
+            if (Constants.BlockedUrls.Any(blocked => requestUri.StartsWith(blocked)))
             {
                 Debug.Log($"[Consoleless] Blocked {requestUri}");
                 __result = Task.FromResult(new byte[0]);
@@ -65,3 +62,4 @@ namespace Consoleless
         }
     }
 }
+
